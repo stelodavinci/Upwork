@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Hafiz Setiawan — Upwork Proposal Demos</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; min-height: 100vh; }
+
+/* NAV */
+.nav { padding: 18px 32px; border-bottom: 1px solid #21262d; display: flex; align-items: center; justify-content: space-between; background: #161b22; }
+.nav-left { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #2ea44f, #1a7f37); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.nav-name { font-size: 15px; font-weight: 600; color: #e6edf3; }
+.nav-sub { font-size: 12px; color: #8b949e; margin-top: 1px; }
+.nav-links { display: flex; gap: 8px; }
+.nav-link { font-size: 13px; color: #8b949e; text-decoration: none; padding: 6px 12px; border-radius: 6px; border: 1px solid #30363d; background: #21262d; }
+.nav-link:hover { color: #e6edf3; border-color: #8b949e; }
+
+/* HERO */
+.hero { text-align: center; padding: 56px 24px 40px; border-bottom: 1px solid #21262d; background: #161b22; }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #1f3a2a; color: #3fb950; font-size: 12px; padding: 4px 14px; border-radius: 20px; margin-bottom: 20px; border: 1px solid #238636; font-weight: 500; }
+.hero h1 { font-size: 32px; font-weight: 700; color: #e6edf3; margin-bottom: 10px; }
+.hero h1 span { color: #2ea44f; }
+.hero p { font-size: 15px; color: #8b949e; max-width: 480px; margin: 0 auto 28px; line-height: 1.7; }
+.hero-stats { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-num { font-size: 22px; font-weight: 700; color: #e6edf3; }
+.stat-label { font-size: 12px; color: #8b949e; margin-top: 2px; }
+
+/* SKILLS */
+.skills-bar { display: flex; justify-content: center; gap: 8px; padding: 16px 24px; background: #0d1117; border-bottom: 1px solid #21262d; flex-wrap: wrap; }
+.skill-tag { font-size: 12px; color: #8b949e; background: #21262d; border: 1px solid #30363d; padding: 4px 12px; border-radius: 20px; }
+.skill-tag.green { color: #3fb950; border-color: #238636; background: #1f3a2a; }
+
+/* MAIN */
+.main { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.section-title { font-size: 18px; font-weight: 600; color: #e6edf3; display: flex; align-items: center; gap: 8px; }
+.section-count { font-size: 12px; color: #8b949e; background: #21262d; border: 1px solid #30363d; padding: 2px 10px; border-radius: 20px; }
+
+/* CARDS */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 48px; }
+.card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 20px; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.15s; }
+.card:hover { border-color: #58a6ff; transform: translateY(-2px); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+.card-icon { font-size: 28px; }
+.card-status { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.status-live { background: #1f3a2a; color: #3fb950; border: 1px solid #238636; }
+.status-demo { background: #1c2a3a; color: #58a6ff; border: 1px solid #1f6feb; }
+.card-title { font-size: 15px; font-weight: 600; color: #e6edf3; margin-bottom: 6px; }
+.card-desc { font-size: 13px; color: #8b949e; line-height: 1.6; margin-bottom: 16px; flex: 1; }
+.card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.tag { font-size: 11px; color: #8b949e; background: #21262d; border: 1px solid #30363d; padding: 2px 8px; border-radius: 4px; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid #21262d; }
+.card-link { font-size: 13px; color: #58a6ff; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+.card-link:hover { text-decoration: underline; }
+.card-arrow { font-size: 14px; color: #30363d; }
+.card:hover .card-arrow { color: #58a6ff; }
+
+/* PROFILE SECTION */
+.profile-card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 24px; margin-bottom: 48px; display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
+.profile-avatar-lg { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #2ea44f, #1a7f37); display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.profile-info h2 { font-size: 18px; font-weight: 700; color: #e6edf3; margin-bottom: 4px; }
+.profile-info p { font-size: 14px; color: #8b949e; margin-bottom: 10px; line-height: 1.6; }
+.profile-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn-green { background: #238636; color: #fff; border: 1px solid #2ea44f; padding: 7px 16px; border-radius: 6px; font-size: 13px; cursor: pointer; text-decoration: none; font-weight: 500; }
+.btn-green:hover { background: #2ea44f; }
+.btn-outline { background: #21262d; color: #e6edf3; border: 1px solid #30363d; padding: 7px 16px; border-radius: 6px; font-size: 13px; cursor: pointer; text-decoration: none; }
+.btn-outline:hover { border-color: #8b949e; }
+
+/* FOOTER */
+.footer { border-top: 1px solid #21262d; padding: 24px; text-align: center; }
+.footer p { font-size: 12px; color: #8b949e; }
+.footer a { color: #58a6ff; text-decoration: none; }
+
+@media (max-width: 600px) {
+  .nav { padding: 14px 16px; }
+  .hero { padding: 36px 16px 28px; }
+  .hero h1 { font-size: 22px; }
+  .main { padding: 24px 16px; }
+  .hero-stats { gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-left">
+    <div class="avatar">H</div>
+    <div>
+      <div class="nav-name">Muhammad Hafiz Setiawan</div>
+      <div class="nav-sub">stelodavinci · Upwork Proposal Demos</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a class="nav-link" href="https://stelodavinci.github.io/My-Portofolio/" target="_blank">Portfolio</a>
+    <a class="nav-link" href="https://www.linkedin.com/in/muhammadhafizsetiawan" target="_blank">LinkedIn</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <span style="width:7px;height:7px;border-radius:50%;background:#3fb950;display:inline-block;"></span>
+    Available for work
+  </div>
+  <h1>Upwork <span>Proposal Demos</span></h1>
+  <p>Live previews of work samples created for Upwork proposals. Each demo showcases real deliverables for specific job categories.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Demo projects</div></div>
+    <div class="stat"><div class="stat-num">PHP · JS · Python</div><div class="stat-label">Tech stack</div></div>
+    <div class="stat"><div class="stat-num">Jakarta, ID</div><div class="stat-label">Location</div></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div class="skills-bar">
+  <span class="skill-tag green">Data Entry</span>
+  <span class="skill-tag green">Web Development</span>
+  <span class="skill-tag green">Python Automation</span>
+  <span class="skill-tag">PHP</span>
+  <span class="skill-tag">MySQL</span>
+  <span class="skill-tag">JavaScript</span>
+  <span class="skill-tag">IoT / ESP32</span>
+  <span class="skill-tag">REST API</span>
+  <span class="skill-tag">IT Support</span>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- PROFILE -->
+  <div class="profile-card">
+    <div class="profile-avatar-lg">H</div>
+    <div class="profile-info">
+      <h2>Muhammad Hafiz Setiawan</h2>
+      <p>Full-Stack Web Developer & IT Professional with 3 years of experience at PT Bank Central Asia. Skilled in PHP, MySQL, Python, JavaScript, and IoT development. Currently building my Upwork freelance portfolio with a focus on data entry, web development, and automation projects.</p>
+      <div class="profile-btns">
+        <a class="btn-green" href="https://www.upwork.com/freelancers/~muhammadhafizsetiawan" target="_blank">Hire me on Upwork</a>
+        <a class="btn-outline" href="https://stelodavinci.github.io/My-Portofolio/" target="_blank">View portfolio</a>
+        <a class="btn-outline" href="mailto:sahalfannani1996@gmail.com">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMO PROJECTS -->
+  <div class="section-header">
+    <div class="section-title">
+      📁 Proposal demos
+      <span class="section-count">3 projects</span>
+    </div>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- DURIAN -->
+    <a class="card" href="durian_landing.html">
+      <div class="card-top">
+        <div class="card-icon">🍈</div>
+        <span class="card-status status-live">Live demo</span>
+      </div>
+      <div class="card-title">Durian Delivery Landing Page</div>
+      <div class="card-desc">A full landing page mockup for a durian e-commerce website — including hero, product menu, how-it-works, testimonials, and footer. Created as a proposal attachment for a CMS content entry job.</div>
+      <div class="card-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">Landing Page</span>
+        <span class="tag">CMS</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-link">Open demo →</span>
+        <span class="card-arrow">›</span>
+      </div>
+    </a>
+
+    <!-- BUYER SCRAPER -->
+    <a class="card" href="buyers_demo.html">
+      <div class="card-top">
+        <div class="card-icon">📊</div>
+        <span class="card-status status-demo">Demo site</span>
+      </div>
+      <div class="card-title">Buyer & Builder Data Scraper</div>
+      <div class="card-desc">A demo website simulating buyerbridge.ai with buyer/builder data. Paired with a Python script that auto-scrapes company name, contact info, permits, city, and state — then exports directly to Excel.</div>
+      <div class="card-tags">
+        <span class="tag">Python</span>
+        <span class="tag">BeautifulSoup</span>
+        <span class="tag">Excel</span>
+        <span class="tag">Data Entry</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-link">Open demo →</span>
+        <span class="card-arrow">›</span>
+      </div>
+    </a>
+
+    <!-- DATING SITE -->
+    <a class="card" href="dating_site.html">
+      <div class="card-top">
+        <div class="card-icon">❤️</div>
+        <span class="card-status status-demo">UI Mockup</span>
+      </div>
+      <div class="card-title">Dating & Classified Ad Platform UI</div>
+      <div class="card-desc">A mobile-first UI mockup for a classified-style dating platform — including user profiles, forum posts, private messaging with token system, banner ad slots, and token purchase packages.</div>
+      <div class="card-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">UI Design</span>
+        <span class="tag">Token System</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-link">Open demo →</span>
+        <span class="card-arrow">›</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section-header">
+    <div class="section-title">
+      🏅 Certifications
+      <span class="section-count">2 certs</span>
+    </div>
+  </div>
+  <div class="cards-grid" style="margin-bottom: 0;">
+    <div class="card" style="cursor:default;">
+      <div class="card-top">
+        <div class="card-icon">🎓</div>
+        <span class="card-status status-live">Verified</span>
+      </div>
+      <div class="card-title">Google IT Support</div>
+      <div class="card-desc">6-course professional certificate by Google covering technical support, networking, OS, system administration, and IT security. Completed Feb 2026.</div>
+      <div class="card-tags">
+        <span class="tag">IT Support</span>
+        <span class="tag">Networking</span>
+        <span class="tag">Security</span>
+      </div>
+      <div class="card-footer">
+        <a class="card-link" href="https://coursera.org/verify/professional-cert/2ASDSKJ7UXCP" target="_blank">Verify certificate →</a>
+      </div>
+    </div>
+    <div class="card" style="cursor:default;">
+      <div class="card-top">
+        <div class="card-icon">🐍</div>
+        <span class="card-status status-live">Verified</span>
+      </div>
+      <div class="card-title">Google IT Automation with Python</div>
+      <div class="card-desc">7-course professional certificate covering Python scripting, Git & GitHub, troubleshooting, configuration management, and cloud automation. Completed Feb 2026.</div>
+      <div class="card-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Git</span>
+        <span class="tag">Automation</span>
+        <span class="tag">Cloud</span>
+      </div>
+      <div class="card-footer">
+        <a class="card-link" href="https://coursera.org/verify/professional-cert/M7KRQTO4FZ43" target="_blank">Verify certificate →</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>Muhammad Hafiz Setiawan · Jakarta, Indonesia · <a href="mailto:sahalfannani1996@gmail.com">sahalfannani1996@gmail.com</a> · <a href="https://www.linkedin.com/in/muhammadhafizsetiawan" target="_blank">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>
