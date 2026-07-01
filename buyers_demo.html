@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BuyerBase — Buyer & Builder Directory</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; background: #f4f6f8; color: #333; }
+.topbar { background: #fff; border-bottom: 1px solid #e0e0e0; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+.topbar h1 { font-size: 20px; color: #00b8a9; font-weight: 700; }
+.topbar span { font-size: 13px; color: #888; }
+.container { max-width: 960px; margin: 24px auto; padding: 0 16px; }
+.filters { background: #fff; border-radius: 8px; padding: 14px 18px; margin-bottom: 18px; display: flex; gap: 12px; align-items: center; border: 1px solid #e0e0e0; }
+.filters label { font-size: 13px; color: #555; }
+.filters select { padding: 6px 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px; }
+.filters button { background: #00b8a9; color: #fff; border: none; padding: 7px 18px; border-radius: 6px; font-size: 13px; cursor: pointer; }
+.count { font-size: 13px; color: #888; margin-bottom: 12px; }
+.buyer-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 0; margin-bottom: 12px; overflow: hidden; }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 14px 18px 10px; }
+.card-left h2 { font-size: 16px; font-weight: 600; color: #222; }
+.card-left .contact-name { font-size: 13px; color: #666; margin-top: 4px; }
+.card-left .contact-name span { color: #aaa; font-size: 12px; margin-right: 4px; }
+.card-right { text-align: right; }
+.location { font-size: 12px; color: #888; display: flex; align-items: center; gap: 4px; justify-content: flex-end; }
+.location::before { content: "📍"; font-size: 11px; }
+.permit-badge { display: inline-block; background: #e0faf7; color: #00897b; font-size: 11px; padding: 3px 10px; border-radius: 20px; margin-top: 4px; border: 1px solid #b2dfdb; }
+.contact-row { padding: 0 18px 10px; }
+.contact-row .label { font-size: 11px; color: #aaa; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
+.reveal-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: #e0faf7; color: #00897b; border: 1px solid #b2dfdb; border-radius: 6px; padding: 9px; font-size: 13px; cursor: pointer; width: 100%; font-weight: 500; transition: background 0.2s; }
+.reveal-btn:hover { background: #b2f0e8; }
+.contact-info { display: none; padding: 10px 18px 14px; border-top: 1px solid #f0f0f0; background: #fafffe; }
+.contact-info p { font-size: 13px; color: #333; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.contact-info .field-label { color: #aaa; font-size: 12px; min-width: 60px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>BuyerBase</h1>
+  <span>Buyer & Builder Directory — Demo</span>
+</div>
+
+<div class="container">
+  <div class="filters">
+    <label>City:</label>
+    <select id="cityFilter">
+      <option value="all">All Cities</option>
+      <option value="Phoenix, AZ">Phoenix, AZ</option>
+      <option value="Houston, TX">Houston, TX</option>
+      <option value="Orlando, FL">Orlando, FL</option>
+    </select>
+    <button onclick="filterCards()">Search</button>
+  </div>
+
+  <div class="count" id="count">Showing 6 buyers/builders</div>
+
+  <!-- Card 1 -->
+  <div class="buyer-card" data-city="Phoenix, AZ">
+    <div class="card-header">
+      <div class="card-left">
+        <h2>Dr Horton Inc Phoenix <span class="permit-badge">84 Permits</span></h2>
+        <div class="contact-name"><span>👤</span> Devon Lloyd</div>
+        <div class="contact-name"><span>📋</span> CONTACT INFORMATION</div>
+      </div>
+      <div class="card-right">
+        <div class="location">Phoenix, AZ</div>
+        <div style="font-size:11px;color:#aaa;">Maricopa County</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="label">Contact Information</div>
+      <button class="reveal-btn" onclick="reveal(this)">👤 Click here for contact information</button>
+      <div class="contact-info">
+        <p><span class="field-label">Email:</span> devon.lloyd@drhorton.com</p>
+        <p><span class="field-label">Phone:</span> (602) 555-0192</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="buyer-card" data-city="Phoenix, AZ">
+    <div class="card-header">
+      <div class="card-left">
+        <h2>LGI Homes Arizona LLC <span class="permit-badge">18 Permits</span></h2>
+        <div class="contact-name"><span>👤</span> Eric Lipor</div>
+        <div class="contact-name"><span>📋</span> CONTACT INFORMATION</div>
+      </div>
+      <div class="card-right">
+        <div class="location">Phoenix, AZ</div>
+        <div style="font-size:11px;color:#aaa;">Maricopa County</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="label">Contact Information</div>
+      <button class="reveal-btn" onclick="reveal(this)">👤 Click here for contact information</button>
+      <div class="contact-info">
+        <p><span class="field-label">Email:</span> e.lipor@lgihomes.com</p>
+        <p><span class="field-label">Phone:</span> (602) 555-0381</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="buyer-card" data-city="Phoenix, AZ">
+    <div class="card-header">
+      <div class="card-left">
+        <h2>The Riders Group</h2>
+        <div class="contact-name"><span>👤</span> Donald Harris</div>
+        <div class="contact-name"><span>📋</span> CONTACT INFORMATION</div>
+      </div>
+      <div class="card-right">
+        <div class="location">Phoenix, AZ</div>
+        <div style="font-size:11px;color:#aaa;">Maricopa County</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="label">Contact Information</div>
+      <button class="reveal-btn" onclick="reveal(this)">👤 Click here for contact information</button>
+      <div class="contact-info">
+        <p><span class="field-label">Email:</span> d.harris@ridersgroup.com</p>
+        <p><span class="field-label">Phone:</span> (602) 555-0247</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="buyer-card" data-city="Houston, TX">
+    <div class="card-header">
+      <div class="card-left">
+        <h2>Meritage Homes Houston <span class="permit-badge">52 Permits</span></h2>
+        <div class="contact-name"><span>👤</span> Sandra Mitchell</div>
+        <div class="contact-name"><span>📋</span> CONTACT INFORMATION</div>
+      </div>
+      <div class="card-right">
+        <div class="location">Houston, TX</div>
+        <div style="font-size:11px;color:#aaa;">Harris County</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="label">Contact Information</div>
+      <button class="reveal-btn" onclick="reveal(this)">👤 Click here for contact information</button>
+      <div class="contact-info">
+        <p><span class="field-label">Email:</span> s.mitchell@meritage.com</p>
+        <p><span class="field-label">Phone:</span> (713) 555-0148</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="buyer-card" data-city="Houston, TX">
+    <div class="card-header">
+      <div class="card-left">
+        <h2>KB Home Texas <span class="permit-badge">31 Permits</span></h2>
+        <div class="contact-name"><span>👤</span> James Reeves</div>
+        <div class="contact-name"><span>📋</span> CONTACT INFORMATION</div>
+      </div>
+      <div class="card-right">
+        <div class="location">Houston, TX</div>
+        <div style="font-size:11px;color:#aaa;">Harris County</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="label">Contact Information</div>
+      <button class="reveal-btn" onclick="reveal(this)">👤 Click here for contact information</button>
+      <div class="contact-info">
+        <p><span class="field-label">Email:</span> j.reeves@kbhome.com</p>
+        <p><span class="field-label">Phone:</span> (713) 555-0293</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="buyer-card" data-city="Orlando, FL">
+    <div class="card-header">
+      <div class="card-left">
+        <h2>Pulte Homes Orlando <span class="permit-badge">67 Permits</span></h2>
+        <div class="contact-name"><span>👤</span> Angela Torres</div>
+        <div class="contact-name"><span>📋</span> CONTACT INFORMATION</div>
+      </div>
+      <div class="card-right">
+        <div class="location">Orlando, FL</div>
+        <div style="font-size:11px;color:#aaa;">Orange County</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="label">Contact Information</div>
+      <button class="reveal-btn" onclick="reveal(this)">👤 Click here for contact information</button>
+      <div class="contact-info">
+        <p><span class="field-label">Email:</span> a.torres@pulte.com</p>
+        <p><span class="field-label">Phone:</span> (407) 555-0174</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function reveal(btn) {
+  const info = btn.nextElementSibling;
+  if (info.style.display === 'block') {
+    info.style.display = 'none';
+    btn.textContent = '👤 Click here for contact information';
+  } else {
+    info.style.display = 'block';
+    btn.textContent = '▲ Hide contact information';
+  }
+}
+
+function filterCards() {
+  const city = document.getElementById('cityFilter').value;
+  const cards = document.querySelectorAll('.buyer-card');
+  let count = 0;
+  cards.forEach(card => {
+    if (city === 'all' || card.dataset.city === city) {
+      card.style.display = 'block';
+      count++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.getElementById('count').textContent = `Showing ${count} buyers/builders`;
+}
+</script>
+</body>
+</html>
